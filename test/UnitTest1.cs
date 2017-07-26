@@ -28,6 +28,7 @@ namespace test
     [InlineData(new []{"\"dbo\".SomeObject"}, "[DBO].SoMeObjecT", true)]
     [InlineData(new []{"[dbo].SomeObject"}, "\"dBo\".SomEobject", true)]
     [InlineData(new []{"dbo.[SomeObject.MORE]"}, "[dbO].[someObject.more]", true)]
+    [InlineData(new []{"dbo.[SomeObject.MORE]"}, "[dbO].someObject.more", true)]
     [InlineData(new []{"[dbo].\"SomeObject.MoRE\""}, "Dbo.[sOmeobJEct.more]", true)]
     public void Contains_GivenObjectListAndTargetObject_ExpectResult(string[] strSqlObjectNames, string strTarget, bool expected)
     {
