@@ -152,10 +152,10 @@ namespace src
       Schema.ToLower() == sqlObjectName.Schema.ToLower() &&
       Database.ToLower() == sqlObjectName.Database.ToLower() &&
       Server.ToLower() == sqlObjectName.Server.ToLower() ||
-      string.Concat(new []{Server, Database, Schema, ObjectName}
+      string.Join(".", new []{Server, Database, Schema, ObjectName}
             .Where(x => !string.IsNullOrEmpty(x))
             .Select(x => x.ToLower())) == 
-      string.Concat(new []{sqlObjectName.Server, sqlObjectName.Database, sqlObjectName.Schema, sqlObjectName.ObjectName}
+      string.Join(".", new []{sqlObjectName.Server, sqlObjectName.Database, sqlObjectName.Schema, sqlObjectName.ObjectName}
             .Where(x => !string.IsNullOrEmpty(x))
             .Select(x => x.ToLower()));
     }
